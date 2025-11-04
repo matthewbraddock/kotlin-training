@@ -1,0 +1,429 @@
+---
+build:
+  maxIssues: 0
+  excludeCorrectable: false
+  weights:
+#    complexity: 2
+#    LongParameterList: 1
+#    style: 1
+#    comments: 1
+
+config:
+  validation: true
+  warningsAsErrors: false
+  checkExhaustiveness: false
+  # when writing own rules with new properties, exclude the property path e.g.: 'my_rule_set,.*>.*>[my_property]'
+  excludes: ''
+
+processors:
+  active: true
+  exclude:
+  - 'DetektProgressListener'
+#    - 'KtFileCountProcessor'
+#    - 'PackageCountProcessor'
+#    - 'ClassCountProcessor'
+#    - 'FunctionCountProcessor'
+#    - 'PropertyCountProcessor'
+#    - 'ProjectComplexityProcessor'
+#    - 'ProjectCognitiveComplexityProcessor'
+#    - 'ProjectLLOCProcessor'
+#    - 'ProjectCLOCProcessor'
+#    - 'ProjectLOCProcessor'
+#    - 'ProjectSLOCProcessor'
+#    - 'LicenseHeaderLoaderExtension'
+
+console-reports:
+  active: true
+  exclude:
+  - 'ProjectStatisticsReport'
+  - 'ComplexityReport'
+  - 'NotificationReport'
+  - 'FindingsReport'
+  - 'FileBasedFindingsReport'
+#    - 'LiteFindingsReport'
+
+output-reports:
+  active: true
+  exclude:
+#    - 'TxtOutputReport'
+#    - 'XmlOutputReport'
+#    - 'HtmlOutputReport'
+#    - 'MdOutputReport'
+#    - 'SarifOutputReport'
+
+empty-blocks:
+  active: true
+  EmptyCatchBlock:
+    active: true
+    allowedExceptionNameRegex: '_|(ignore|expected).*'
+  EmptyClassBlock:
+    active: true
+  EmptyDefaultConstructor:
+    active: true
+  EmptyDoWhileBlock:
+    active: true
+  EmptyElseBlock:
+    active: true
+  EmptyFinallyBlock:
+    active: true
+  EmptyForBlock:
+    active: true
+  EmptyFunctionBlock:
+    active: true
+    ignoreOverridden: false
+  EmptyIfBlock:
+    active: true
+  EmptyInitBlock:
+    active: true
+  EmptySecondaryConstructor:
+    active: true
+  EmptyTryBlock:
+    active: true
+  EmptyWhenBlock:
+    active: true
+  EmptyWhileBlock:
+    active: true
+
+formatting:
+  active: true
+  android: false
+  autoCorrect: true
+  AnnotationOnSeparateLine:
+    active: true
+    autoCorrect: true
+    indentSize: 4
+  AnnotationSpacing:
+    active: true
+    autoCorrect: true
+  ArgumentListWrapping:
+    active: true
+    autoCorrect: true
+    indentSize: 4
+    maxLineLength: 120
+  BlockCommentInitialStarAlignment:
+    active: true
+    autoCorrect: true
+  ChainWrapping:
+    active: true
+    autoCorrect: true
+    indentSize: 4
+  ClassName:
+    active: false
+  CommentSpacing:
+    active: true
+    autoCorrect: true
+  CommentWrapping:
+    active: true
+    autoCorrect: true
+    indentSize: 4
+  ContextReceiverMapping:
+    active: false
+    autoCorrect: true
+    maxLineLength: 120
+    indentSize: 4
+  DiscouragedCommentLocation:
+    active: false
+    autoCorrect: true
+  EnumEntryNameCase:
+    active: true
+    autoCorrect: true
+  EnumWrapping:
+    active: false
+    autoCorrect: true
+    indentSize: 4
+  Filename:
+    active: true
+  FinalNewline:
+    active: true
+    autoCorrect: true
+    insertFinalNewLine: true
+  FunKeywordSpacing:
+    active: true
+    autoCorrect: true
+  FunctionName:
+    active: false
+  FunctionReturnTypeSpacing:
+    active: true
+    autoCorrect: true
+    maxLineLength: 120
+  FunctionSignature:
+    active: false
+    autoCorrect: true
+    forceMultilineWhenParameterCountGreaterOrEqualThan: 2147483647
+    functionBodyExpressionWrapping: 'default'
+    maxLineLength: 120
+    indentSize: 4
+  FunctionStartOfBodySpacing:
+    active: true
+    autoCorrect: true
+  FunctionTypeReferenceSpacing:
+    active: true
+    autoCorrect: true
+  IfElseBracing:
+    active: false
+    autoCorrect: true
+    indentSize: 4
+  IfElseWrapping:
+    active: false
+    autoCorrect: true
+    indentSize: 4
+  ImportOrdering:
+    active: true
+    autoCorrect: true
+    layout: 'java.**,javax.**,kotlin.**,*,com.simspace.**,^'
+  Indentation:
+    active: true
+    autoCorrect: true
+    indentSize: 4
+  KdocWrapping:
+    active: true
+    autoCorrect: true
+    indentSize: 4
+  MaximumLineLength:
+    active: true
+    maxLineLength: 120
+    ignoreBackTickedIdentifier: false
+  ModifierListSpacing:
+    active: true
+    autoCorrect: true
+  ModifierOrdering:
+    active: true
+    autoCorrect: true
+  MultiLineIfElse:
+    active: true
+    autoCorrect: true
+    indentSize: 4
+  MultilineExpressionWrapping:
+    active: false
+    autoCorrect: true
+    indentSize: 4
+  NoBlankLineBeforeRbrace:
+    active: true
+    autoCorrect: true
+  NoBlankLineInList:
+    active: false
+    autoCorrect: true
+  NoBlankLinesInChainedMethodCalls:
+    active: true
+    autoCorrect: true
+  NoConsecutiveBlankLines:
+    active: true
+    autoCorrect: true
+  NoConsecutiveComments:
+    active: false
+  NoEmptyClassBody:
+    active: true
+    autoCorrect: true
+  NoEmptyFirstLineInClassBody:
+    active: false
+    autoCorrect: true
+    indentSize: 4
+  NoEmptyFirstLineInMethodBlock:
+    active: true
+    autoCorrect: true
+  NoLineBreakAfterElse:
+    active: true
+    autoCorrect: true
+  NoLineBreakBeforeAssignment:
+    active: true
+    autoCorrect: true
+  NoMultipleSpaces:
+    active: true
+    autoCorrect: true
+  NoSemicolons:
+    active: true
+    autoCorrect: true
+  NoSingleLineBlockComment:
+    active: false
+    autoCorrect: true
+    indentSize: 4
+  NoTrailingSpaces:
+    active: true
+    autoCorrect: true
+  NoUnitReturn:
+    active: true
+    autoCorrect: true
+  NoUnusedImports:
+    active: true
+    autoCorrect: true
+  NoWildcardImports:
+    active: true
+    packagesToUseImportOnDemandProperty: 'java.util.*'
+  NullableTypeSpacing:
+    active: true
+    autoCorrect: true
+  PackageName:
+    active: true
+    autoCorrect: true
+  ParameterListSpacing:
+    active: false
+    autoCorrect: true
+  ParameterListWrapping:
+    active: true
+    autoCorrect: true
+    maxLineLength: 120
+    indentSize: 4
+  ParameterWrapping:
+    active: true
+    autoCorrect: true
+    indentSize: 4
+    maxLineLength: 120
+  PropertyName:
+    active: false
+  PropertyWrapping:
+    active: true
+    autoCorrect: true
+    indentSize: 4
+    maxLineLength: 120
+  SpacingAroundAngleBrackets:
+    active: true
+    autoCorrect: true
+  SpacingAroundColon:
+    active: true
+    autoCorrect: true
+  SpacingAroundComma:
+    active: true
+    autoCorrect: true
+  SpacingAroundCurly:
+    active: true
+    autoCorrect: true
+  SpacingAroundDot:
+    active: true
+    autoCorrect: true
+  SpacingAroundDoubleColon:
+    active: true
+    autoCorrect: true
+  SpacingAroundKeyword:
+    active: true
+    autoCorrect: true
+  SpacingAroundOperators:
+    active: true
+    autoCorrect: true
+  SpacingAroundParens:
+    active: true
+    autoCorrect: true
+  SpacingAroundRangeOperator:
+    active: true
+    autoCorrect: true
+  SpacingAroundUnaryOperator:
+    active: true
+    autoCorrect: true
+  SpacingBetweenDeclarationsWithAnnotations:
+    active: true
+    autoCorrect: true
+  SpacingBetweenDeclarationsWithComments:
+    active: true
+    autoCorrect: true
+  SpacingBetweenFunctionNameAndOpeningParenthesis:
+    active: true
+    autoCorrect: true
+  StringTemplate:
+    active: true
+    autoCorrect: true
+  StringTemplateIndent:
+    active: false
+    autoCorrect: true
+    indentSize: 4
+  TrailingCommaOnCallSite:
+    active: true
+    autoCorrect: true
+    useTrailingCommaOnCallSite: true
+  TrailingCommaOnDeclarationSite:
+    active: true
+    autoCorrect: true
+    useTrailingCommaOnDeclarationSite: true
+  TryCatchFinallySpacing:
+    active: false
+    autoCorrect: true
+    indentSize: 4
+  TypeArgumentListSpacing:
+    active: false
+    autoCorrect: true
+    indentSize: 4
+  TypeParameterListSpacing:
+    active: false
+    autoCorrect: true
+    indentSize: 4
+  UnnecessaryParenthesesBeforeTrailingLambda:
+    active: true
+    autoCorrect: true
+  Wrapping:
+    active: true
+    autoCorrect: true
+    indentSize: 4
+    maxLineLength: 120
+
+naming:
+  active: true
+  BooleanPropertyNaming:
+    active: false
+    allowedPattern: '^(is|has|are)'
+  ClassNaming:
+    active: true
+    classPattern: '[A-Z][a-zA-Z0-9]*'
+  ConstructorParameterNaming:
+    active: true
+    parameterPattern: '[a-z][A-Za-z0-9]*'
+    privateParameterPattern: '[a-z][A-Za-z0-9]*'
+    excludeClassPattern: '$^'
+  EnumNaming:
+    active: true
+    enumEntryPattern: '[A-Z][_a-zA-Z0-9]*'
+  ForbiddenClassName:
+    active: false
+    forbiddenName: []
+  FunctionNaming:
+    active: true
+    excludes: ['**/test/**', '**/integration-test/**']
+    functionPattern: '[a-z][a-zA-Z0-9]*'
+    excludeClassPattern: '$^'
+  FunctionParameterNaming:
+    active: true
+    parameterPattern: '[a-z][A-Za-z0-9]*'
+    excludeClassPattern: '$^'
+  InvalidPackageDeclaration:
+    active: true
+    rootPackage: ''
+    requireRootInDeclaration: false
+  LambdaParameterNaming:
+    active: false
+    parameterPattern: '[a-z][A-Za-z0-9]*|_'
+  MatchingDeclarationName:
+    active: true
+    mustBeFirst: true
+  MemberNameEqualsClassName:
+    active: true
+    ignoreOverridden: true
+  NoNameShadowing:
+    active: true
+  NonBooleanPropertyPrefixedWithIs:
+    active: false
+  ObjectPropertyNaming:
+    active: true
+    constantPattern: '[A-Za-z][_A-Za-z0-9]*'
+    propertyPattern: '[A-Za-z][_A-Za-z0-9]*'
+    privatePropertyPattern: '(_)?[A-Za-z][_A-Za-z0-9]*'
+  PackageNaming:
+    active: true
+    packagePattern: '[a-z]+(\.[a-z][A-Za-z0-9]*)*'
+  TopLevelPropertyNaming:
+    active: true
+    constantPattern: '[A-Z][_A-Z0-9]*'
+    propertyPattern: '[A-Za-z][_A-Za-z0-9]*'
+    privatePropertyPattern: '_?[A-Za-z][_A-Za-z0-9]*'
+  VariableMaxLength:
+    active: false
+    maximumVariableNameLength: 64
+  VariableMinLength:
+    active: false
+    minimumVariableNameLength: 1
+  VariableNaming:
+    active: true
+    variablePattern: '[a-z][A-Za-z0-9]*'
+    privateVariablePattern: '(_)?[a-z][A-Za-z0-9]*'
+    excludeClassPattern: '$^'
+
+style:
+  active: true
+  ClassOrdering:
+    active: true

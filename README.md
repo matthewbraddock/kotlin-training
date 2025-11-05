@@ -5,7 +5,7 @@ Kotlin.
 
 ## Structure
 
-### `codwars/`
+### `codewars/`
 LeetCode-style algorithmic challenges and competitive programming problems.
 
 ### `training/`

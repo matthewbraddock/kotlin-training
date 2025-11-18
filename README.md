@@ -8,6 +8,10 @@ Kotlin.
 ### `codewars/`
 LeetCode-style algorithmic challenges and competitive programming problems.
 
+### `fundamentals/`
+Deep dives into core Kotlin concepts with explanations and examples. Each topic includes documentation and practical 
+code demonstrations.
+
 ### `training/`
 Foundational programming exercises covering core concepts and data structures.
 

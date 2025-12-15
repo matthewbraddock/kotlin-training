@@ -1,8 +1,8 @@
 package codewars
 
+import java.util.HashMap
 import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.matchers.shouldBe
-import java.util.HashMap
 
 val set = emptySet<Int>()
 

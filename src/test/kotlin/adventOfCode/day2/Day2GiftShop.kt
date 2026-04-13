@@ -8,6 +8,12 @@ class Day2GiftShop : DescribeSpec(
         describe("given a list of IDs") {
             it("add up all invalid IDs and return the result") {
                 sumOfInvalidIds()
+                println()
+            }
+            it("add up all invalid IDs and return the result for part 2") {
+
+                sumOfInvalidIdsPart2()
+                println()
             }
         }
     },
@@ -105,5 +111,80 @@ fun sumOfInvalidIds(): Long {
     }
 
     println("The sum of all invalid IDs is: $answer")
+    return answer
+}
+
+/**
+ * Now, an ID is invalid if it is made only of some sequence of digits repeated at least twice.
+ * So, 12341234 (1234 two times), 123123123 (123 three times), 1212121212 (12 five times), and
+ * 1111111 (1 seven times) are all invalid IDs.
+ *
+ * From the same example as before:
+ *
+ * 11-22 still has two invalid IDs, 11 and 22.
+ * 95-115 now has two invalid IDs, 99 and 111.
+ * 998-1012 now has two invalid IDs, 999 and 1010.
+ * 1188511880-1188511890 still has one invalid ID, 1188511885.
+ * 222220-222224 still has one invalid ID, 222222.
+ * 1698522-1698528 still contains no invalid IDs.
+ * 446443-446449 still has one invalid ID, 446446.
+ * 38593856-38593862 still has one invalid ID, 38593859.
+ * 565653-565659 now has one invalid ID, 565656.
+ * 824824821-824824827 now has one invalid ID, 824824824.
+ * 2121212118-2121212124 now has one invalid ID, 2121212121.
+ *
+ * Adding up all the invalid IDs in this example produces 4174379265.
+ */
+fun sumOfInvalidIdsPart2(): Long {
+    val inputFile = File("src/test/kotlin/adventOfCode/day2/input.txt")
+
+    try {
+        inputFile.readText()
+    } catch (e: Exception) {
+        println("Error reading file: ${e.message}")
+    }
+
+    var answer = 0.toLong()
+
+    inputFile.useLines { lines ->
+        lines.forEach { line ->
+            // Split the line into an array like 8284583-8497825 , 7171599589-7171806875
+            val ranges = line.split(",")
+            println(ranges)
+
+            // Actually breaks up 8284583-8497825 into 8284583 and 8497825
+            ranges.forEachIndexed { _, rangeStr ->
+                // Break each range e.g. "8284583-8497825" into lower and upper bounds
+                val (lowStr, highStr) = rangeStr.split("-")
+                val lower = lowStr.toLong()
+                val upper = highStr.toLong()
+
+                for (id in lower..upper) {
+                    val idStr = id.toString()
+                    // Only need to check chunks up to half the string length,
+                    // since a sequence must repeat at least twice
+                    val halfwayPoint = idStr.length / 2
+
+                    // Try each possible chunk length from 1 up to half the string
+                    for (chunk in 1..halfwayPoint) {
+                        // Chunk must divide evenly into the total length
+                        if (idStr.length % chunk != 0) continue
+
+                        // Rotate the string by moving the first `chunk` chars to the back
+                        // e.g. "824824824" with chunk 3 -> "824824" + "824" = "824824824"
+                        val newString = idStr.substring(chunk) + idStr.substring(0, chunk)
+
+                        // If the rotated string matches the original, the sequence repeats
+                        if (newString == idStr) {
+                            answer += id
+                            break // No need to check other chunks
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    println("The sum of all invalid IDs for part 2 is: $answer")
     return answer
 }
